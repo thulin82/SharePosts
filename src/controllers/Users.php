@@ -141,12 +141,4 @@
             $_SESSION['user_name'] = $user->name;
             redirect('posts');
         }
-
-        public function isLoggedIn() {
-            if (isset($_SESSION['user_id'])) {
-                return true;
-            } else {
-                return false;
-            }
-        }
     }
