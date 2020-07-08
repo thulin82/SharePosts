@@ -131,6 +131,7 @@
             unset($_SESSION['user_id']);
             unset($_SESSION['user_email']);
             unset($_SESSION['user_name']);
+            session_destroy();
             redirect('pages/index');
         }
 
@@ -138,8 +139,7 @@
             $_SESSION['user_id'] = $user->id;
             $_SESSION['user_email'] = $user->email;
             $_SESSION['user_name'] = $user->name;
-            session_destroy();
-            redirect('pages/index');
+            redirect('posts');
         }
 
         public function isLoggedIn() {
