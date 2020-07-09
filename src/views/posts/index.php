@@ -1,5 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php';?>
-    <div class="row mb-4">
+    <?php flash('post_msg'); ?>
+    <div class="row mb-3">
         <div class="col-md-6">
             <h1>Posts</h1>
         </div>
