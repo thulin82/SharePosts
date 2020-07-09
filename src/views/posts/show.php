@@ -9,5 +9,8 @@
         <?php if($data['post']->user_id == $_SESSION['user_id']) : ?>
             <hr>
             <a href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['post']->id; ?>" class="btn btn-dark"><i class="fa fa-pencil"> Edit</i></a>
+            <form class="pull-right" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id; ?>" method="post">
+                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"> Delete</i>
+            </form>
         <?php endif; ?>
 <?php require APPROOT . '/views/inc/footer.php';?>
