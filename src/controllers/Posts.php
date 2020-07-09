@@ -105,6 +105,31 @@
             }
         }
 
+        public function delete($id) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $data = [
+                    'id' => $id
+                ];
+
+                $post = $this->postModel->getPost($id);
+
+                if ($post->user_id != $_SESSION['user_id']) {
+                    redirect('posts');
+                }
+
+                if ($this->postModel->deletePost($data)) {
+                    flash('post_msg', 'Post Removed');
+                    redirect('posts');
+                } else {
+                    die('Something went wrong');
+                }
+            } else {
+                redirect('posts');
+            }
+        }
+
         public function show($id) {
             $post = $this->postModel->getPost($id);
             $user = $this->userModel->getUser($post->user_id);
